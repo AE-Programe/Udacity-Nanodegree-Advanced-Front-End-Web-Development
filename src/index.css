@@ -1,0 +1,35 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+h2.bookshelf-title {
+  padding:10px 2px;
+  margin:5px 0;
+  text-align: center;
+}
+.book {
+  padding:10px;
+}
+.book:hover {
+  background:rgba(0,0,0,.1);
+}
+.book-title,.book-authors {
+  user-select: none;
+}
+.book-cover {
+  box-shadow: 0 0 10px gray;
+}
+
+.book-shelf-changer select {
+  border:0;
+  outline:none;
+  scroll-behavior: smooth;
+  font-size:16px;
+}
