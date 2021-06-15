@@ -32,7 +32,6 @@ class BookLibrary extends Component {
 }
 
 BookLibrary.propTypes = {
-  books : PropTypes.array.isRequired,
   ChangeBookCase : PropTypes.func.isRequired,
 }
 export default BookLibrary;

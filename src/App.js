@@ -22,12 +22,20 @@ class App extends React.Component {
   }
 
   ChangeBookCase = (book, shelf) => {
-    BooksAPI.update(book, shelf).then(
-      BooksAPI.getAll().then(book => this.setState({
-        books: book
-      }))
-    )
-  }
+      BooksAPI.update(book, shelf).catch(err => {
+        this.setState({ error: true });
+      });
+      if (shelf === 'none') {
+        this.setState(prevState => ({
+          books: prevState.books.filter(b => b.id !== book.id)
+        }));
+      } else {
+        book.shelf = shelf;
+        this.setState(prevState => ({
+          books: prevState.books.filter(b => b.id !== book.id).concat(book)
+        }));
+      }
+    };
 
   searchForBooks = query => {
     if (query.length > 0) {
